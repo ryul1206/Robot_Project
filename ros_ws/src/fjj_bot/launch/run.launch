@@ -1,0 +1,27 @@
+<launch>
+    <param name="/use_sim_time" value="false" type="bool"/>
+    
+    <node name="rosClock" pkg="fjj_bot" type="ros_clock.py" />
+    <node name="tf_broadcaster" pkg="fjj_bot" type="tf_broadcaster.py" />
+
+
+
+    <param name="/state" value="step_init_pose"/>
+    <!-- <arg name="map_file" default="$(find [package where your yaml file is])/mymap.yaml"/> -->
+    <arg name="map_file" default="/home/hr/map.yaml"/>
+
+    <!-- Run the map server -->
+    <node name="mapserver" pkg="map_server" type="map_server" args="$(arg map_file)" />
+    
+
+    <node name="yolo" pkg="fjj_bot" type="yolo.py" />
+    <node name="grab_with_depth" pkg="fjj_bot" type="grab_with_depth.py" output="screen"/>
+
+    <node name="main" pkg="fjj_bot" type="main.py" output="screen" />
+    <!-- rid, normal_speed, max_speed, init_x, init_y -->
+	<!-- <node name="mobile_robot0" pkg="spp_robot" type="mobile_robot.py" args="0 0.3 0.5" />
+    <node name="mobile_robot1" pkg="spp_robot" type="mobile_robot.py" args="1 0.3 0.5" />
+    <node name="mobile_robot2" pkg="spp_robot" type="mobile_robot.py" args="2 0.3 0.5" />
+    <node name="mobile_robot3" pkg="spp_robot" type="mobile_robot.py" args="3 0.3 0.5" /> -->
+
+</launch>

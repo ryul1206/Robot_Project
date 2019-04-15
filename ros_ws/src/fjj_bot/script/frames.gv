@@ -1,0 +1,11 @@
+digraph G {
+"TF_END" -> "TF_CAM"[label="Broadcaster: /tf_broadcaster\nAverage rate: 32.201 Hz\nMost recent transform: 1528785435.242 ( 0.018 sec old)\nBuffer length: 4.969 sec\n"];
+"TF_ARM" -> "TF_END"[label="Broadcaster: /tf_broadcaster\nAverage rate: 32.201 Hz\nMost recent transform: 1528785435.242 ( 0.018 sec old)\nBuffer length: 4.969 sec\n"];
+"TF_BASE" -> "TF_SCAN_FW"[label="Broadcaster: /tf_broadcaster\nAverage rate: 32.201 Hz\nMost recent transform: 1528785435.242 ( 0.018 sec old)\nBuffer length: 4.969 sec\n"];
+"TF_WORLD" -> "TF_BASE"[label="Broadcaster: /tf_broadcaster\nAverage rate: 32.201 Hz\nMost recent transform: 1528785435.242 ( 0.018 sec old)\nBuffer length: 4.969 sec\n"];
+"TF_BASE" -> "TF_ARM"[label="Broadcaster: /tf_broadcaster\nAverage rate: 32.201 Hz\nMost recent transform: 1528785435.242 ( 0.018 sec old)\nBuffer length: 4.969 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1528785435.260"[ shape=plaintext ] ;
+ }->"TF_WORLD";
+}
